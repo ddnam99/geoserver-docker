@@ -9,9 +9,9 @@ services:
       volumes:
          - ./posgis-data:/var/lib/postgresql
       environment:
-        - POSTGRES_DB=gis
-        - POSTGRES_USER=namdd
-        - POSTGRES_PASS=13256789
+        - POSTGRES_DB=${POSTGRES_DB}
+        - POSTGRES_USER=${POSTGRES_USER}
+        - POSTGRES_PASS=${POSTGRES_PASS}
 
     geoserver:
       image: kartoza/geoserver:2.18.0
@@ -24,8 +24,8 @@ services:
         - DB_BACKEND=POSTGRES
         - HOST=db
         - POSTGRES_PORT=5432
-        - POSTGRES_DB=gis
-        - POSTGRES_USER=namdd
-        - POSTGRES_PASS=13256789
-        - GEOSERVER_ADMIN_USER=namdd
-        - GEOSERVER_ADMIN_PASSWORD=13245
+        - POSTGRES_DB=${POSTGRES_DB}
+        - POSTGRES_USER=${POSTGRES_USER}
+        - POSTGRES_PASS=${POSTGRES_PASS}
+        - GEOSERVER_ADMIN_USER=${GEOSERVER_ADMIN_USER}
+        - GEOSERVER_ADMIN_PASSWORD=${GEOSERVER_ADMIN_PASSWORD}
