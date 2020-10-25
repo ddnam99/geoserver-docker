@@ -4,7 +4,7 @@ services:
     db:
       image: kartoza/postgis:13.0
       ports:
-        - 5432:5432
+        - ${POSGRES_PORT}:5432
       restart: always
       volumes:
          - ./posgis-data:/var/lib/postgresql
@@ -16,7 +16,7 @@ services:
     geoserver:
       image: kartoza/geoserver:2.18.0
       ports:
-        - 8080:8080
+        - ${GEOSERVER_PORT}:8080
       restart: always
       volumes:
           - ./geoserver-data:/opt/geoserver/data_dir
