@@ -2,16 +2,17 @@ version: "3.4"
 
 services:
     db:
-      image: kartoza/postgis:13.0
+      image: kartoza/postgis:9.6-2.4
       ports:
         - ${POSGRES_PORT}:5432
       restart: always
       volumes:
-         - ./posgis-data:/var/lib/postgresql
+         - ./postgis-data:/var/lib/postgresql
       environment:
         - POSTGRES_DB=${POSTGRES_DB}
         - POSTGRES_USER=${POSTGRES_USER}
         - POSTGRES_PASS=${POSTGRES_PASS}
+        - ALLOW_IP_RANGE=${ALLOW_IP_RANGE}
 
     geoserver:
       image: kartoza/geoserver:2.18.0
